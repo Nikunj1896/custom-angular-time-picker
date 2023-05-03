@@ -1,27 +1,91 @@
-# CustomTimePicker
+# Angular Custom Time Picker
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Install package from npm.
 
-## Code scaffolding
+```
+    npm install custom-angular-time-picker --save
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+2. Include CustomAngularTimePickerComponentModule into your application.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { CustomAngularTimePickerComponentModule } from 'ng2-datepicker';
 
-## Running unit tests
+@NgModule({
+  imports: [BrowserModule, CustomAngularTimePickerComponentModule],
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. And that's it, you can then use it in your component as [ts] file:
 
-## Running end-to-end tests
+```
+<form [formGroup]="addNewTime">
+    <custom-angular-time-picker 
+        [value]="addNewTime.value.workSheduleTime"
+        (onChange)="handleOnTimeChange($event)" >
+    </custom-angular-time-picker>
+</form>
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+3. And that's it, you can then use it in your component as [html] file:
 
-## Further help
+```
+import { ControlContainer, FormBuilder, FormGroup, FormGroupDirective } from '@angular/forms';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@Component({
+  selector: 'ParentComponentName',
+  templateUrl: '',
+  styleUrls: [''],
+  viewProviders: [{
+    provide: ControlContainer,
+    useExisting: FormGroupDirective
+  }]
+})
+
+export class ParentComponentName implements OnInit {
+
+    addNewTime!: FormGroup;
+
+    constructor(private fb: FormBuilder){
+    }
+
+    initForm() {
+        this.addNewTime = this.fb.group({
+        'workSheduleTime': ['', Validators.required]
+        })
+    }
+
+}
+```
+
+
+## Run Demo
+
+1. Clone this repository.
+
+```
+git clone https://github.com/Nikunj1896/custom-angular-time-picker
+```
+
+2. Install dependencies.
+
+```
+npm install
+```
+
+3. Start the demo
+
+```
+ng serve
+```

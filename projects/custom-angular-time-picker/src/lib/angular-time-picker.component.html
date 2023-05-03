@@ -1,0 +1,36 @@
+<section>
+    <form [formGroup]="timeInput" autocomplete="off">
+      <div class="time-input-wrapper">
+        <section class="hourMin-block">
+          <input formControlName="hour1" [(ngModel)]="timeInput.value.hour1" type="text" maxlength="1" minlength="1"
+            class="time-input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+          <input formControlName="hour2" [(ngModel)]="timeInput.value.hour2" type="text" maxlength="1" minlength="1"
+            class="time-input left-divider"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        </section>
+  
+        <div class="separator">
+          :
+        </div>
+  
+        <section class="hourMin-block">
+          <input formControlName="min1" [(ngModel)]="timeInput.value.min1" type="text" maxlength="1" minlength="1"
+            class="time-input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+          <input formControlName="min2" [(ngModel)]="timeInput.value.min2" type="text" maxlength="1" minlength="1"
+            class="time-input left-divider"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+        </section>
+  
+        <section class="meridiem-wrapper">
+          <input formControlName="meridiem" [(ngModel)]="timeInput.value.meridiem" type="text" maxlength=2 minlength=2
+            class="time-input meridiem"
+            oninput="this.value = this.value.replace(/[^a-z.]/g, '').replace(/(\..*)\./g, '$1');"
+            (keydown)="handleMeridiem($event)">
+          <span class="meridiem-icon-wrapper">
+            <svg (click)="handleMeridiem($event)" xmlns="http://www.w3.org/2000/svg" width="9.988" height="5.025" viewBox="0 0 9.988 5.025"><defs><style>.a{fill:#001f38;}</style></defs><path class="a" d="M5951.5-16799.477l5.025-5.025,4.963,5.025Z" transform="translate(-5951.5 16804.502)"/></svg>
+            <svg (click)="handleMeridiem($event)" xmlns="http://www.w3.org/2000/svg" width="9.988" height="5.025" viewBox="0 0 9.988 5.025"><defs><style>.a{fill:#001f38;}</style></defs><path class="a" d="M5951.5-16804.5l5.025,5.025,4.963-5.025Z" transform="translate(-5951.5 16804.5)"/></svg>
+          </span>
+        </section>
+      </div>
+    </form>
+  </section>

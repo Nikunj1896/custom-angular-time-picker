@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.time-input-wrapper {
+    text-align: center;
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    /* background: #fff 0 0 no-repeat padding-box; */
+    /* box-shadow: 0 1px 4px #00000014; */
+    padding: 1px 10px 7px;
+    margin-bottom: 5px;
+}
+
+.hourMin-block {
+    box-shadow: 0px 0px 3px #A8B1B8;
+    border-radius: 3px;
+    display: flex;
+}
+
+.time-input {
+    width: 16px;
+    height: 26px;
+    background: #EDEEEF 0% 0% no-repeat padding-box;
+    color: #001F38;
+    text-align: center;
+    text-transform: none;
+    font: normal normal 600 12px/18px Open Sans;
+    /* letter-spacing: 2.8px; */
+    border: 0px;
+    outline: none;
+    text-rendering: optimizeLegibility !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+.separator {
+    color: #001F38;
+    font: normal normal 600 12px/18px Open Sans;
+    align-self: center;
+}
+
+.left-divider {
+    border-left: 0.5px solid rgb(168, 177, 184, 0.4) !important;
+}
+
+/* am=pm */
+.meridiem-wrapper {
+    display: flex;
+    box-shadow: 0px 0px 3px #A8B1B8;
+    border-radius: 3px;
+    position: relative;
+    margin-left: 6px;
+}
+
+.meridiem-wrapper input {
+    border-radius: 3px;
+    width: 43px;
+    height: 26px;
+    letter-spacing: 0px;
+    text-align: left;
+    padding-left: 7px;
+    text-transform: uppercase;
+}
+
+.meridiem-icon-wrapper {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    grid-gap: 2px;
+    gap: 3px;
+    top: 6px;
+    right: 4px;
+    flex-direction: column;
+}
+
+.meridiem-icon-wrapper img {
+    opacity: 0.4;
+}
+
+.meridiem-icon-wrapper img:hover {
+    opacity: 0.6;
+}
+
+.meridiem-icon-wrapper img:active {
+    opacity: 1;
+}
+
+.time-picker-icon {
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+}
+
+::ng-deep .timePicker-icon .mat-icon {
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+}
+
+::ng-deep .timePicker-icon:hover .cos-icon svg * {
+    fill: #f4b92e !important;
+}
+
+::ng-deep .timePicker .time-box {
+    position: absolute;
+    top: 0;
+    left: -26px;
+}
+
+::ng-deep .timePicker .picker-wrapper {
+    position: fixed !important;
+}
